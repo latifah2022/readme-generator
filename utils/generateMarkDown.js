@@ -1,5 +1,5 @@
 function generateMarkdown(userResponses, userInfo) {
-    var content = `# ${response.title}
+    var content = `# ${response.title}`
 
     let content = `## Table of Contents`;
 
@@ -12,11 +12,14 @@ function generateMarkdown(userResponses, userInfo) {
     if (userResponses.tests !== '') { content += ` * [License](#license)` };
 
      
-    # Repository Description
+    `# Repository Description
+
     ###### [Back to Table of Contents](#Table-of-Contents)
-    ${response.description}
+
+    ${response.description}`
     
-    ## Installation
+    `## Installation
+
     *Steps required to install project and how to get the development environment running:*
     
     ${userResponses.installation}`};
@@ -25,6 +28,7 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.usage !== '') {draftMarkdown +=`
     
     ## Usage 
+
     *Instructions and examples for use:*
     
     ${userResponses.usage}`};
@@ -33,21 +37,43 @@ function generateMarkdown(userResponses, userInfo) {
   if (userResponses.contributing !== '') {draftMarkdown +=`
     
     ## Contributing
+
     *If you would like to contribute it, you can follow these guidelines for how to do so.*
     
     ${userResponses.contributing}`};
 
+  if (userResponses.tests !== '') {
+  
+    draftMarkdown +=`
+      
+    ## Tests
+      
+    *Tests for application and how to run them:*
+      
+    ${userResponses.tests}`};
+
     // License section is required
-  draftMarkdown +=`
-  ## License
+  draftMarkdown +=`## License
   
   ${userResponses.license}`;
+
+  // Questions / About Developer section
+  let draftDev = `---
+  
+  ## Questions?
+
+  // <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40%" />
+  
+  For any questions, please contact me with the information below:
+ 
+  GitHub: [@${userInfo.login}](${userInfo.url})
+  `;
 
   //add markdown
  // draftMarkdown += draftDev;
 
   // Return markdown
   return content;
-};
+
 
 module.exports = generateMarkdown;

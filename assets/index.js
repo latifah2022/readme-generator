@@ -2,7 +2,7 @@
 const question = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-const generatorMarkDown = require("./utils/generatorMarkDown.js")
+const generatorMarkDown = require("./utils/generateMarkDown.js")
 
 //Questions the user will be asked
  let questions = [
@@ -60,11 +60,16 @@ const generatorMarkDown = require("./utils/generatorMarkDown.js")
       name: "contributors",
       validate: (value) => {if(value){return true}else {return "value required"}}
     },
-    // {
-    //   type: 'input',
-    //   message: 'What challenges did you face during the project?',
-    //   name: 'GitHub URL',
-    // },
+    {
+      type: 'input',
+      message: 'If applicable, provide any tests written for your application and provide examples on how to run them',
+      name: 'Tests',
+    },
+    {
+      type: 'input',
+      message: 'What challenges did you face during t',
+      name: 'Questions',
+    },
   ]
 
   // Function to write to my ReadMe.md file. //
