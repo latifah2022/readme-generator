@@ -13,18 +13,6 @@ function generateMarkdown(response) {
    -[ Tests](#tests)
    -[ Questions](#questions)`
 
-    //let content = ## Table of Contents;
-
-    // if (response.installation !== '') { content += * [Installation](#installation) };
-  
-    // if (response.usage !== '') { content += * [Usage](#usage) };
-  
-    // if (response.contributing !== '') { content +=  * [Contributing](#contributing) };
-  
-    // if (response.licence !== '') { content +=  * [License](#license) };
-
-    // if (response.tests !== '') { content += * [Tests](#tests) };
-     
     `## Repository Description
 
     ${response.description}`
@@ -36,7 +24,6 @@ function generateMarkdown(response) {
     ${response.installation}`;
 
     //  Usage section
-    //if (response.usage !== '') {draftMarkdown +=
   
     `## Usage 
 
@@ -45,15 +32,12 @@ function generateMarkdown(response) {
     ${response.usage}`;
 
     //  Contributing section
-    //if (userResponses.contributing !== '') {draftMarkdown +=
     
     `## Contributing
 
     *If you would like to contribute it, you can follow these guidelines for how to do so.*
     
     ${response.contributing}`;
-
-    //if (response.tests !== '') { draftMarkdown +=
       
     `## Tests
       
@@ -61,8 +45,10 @@ function generateMarkdown(response) {
       
     ${response.tests}`;
 
-    // License section is required draftMarkdown +=
+    // License section 
     `## License
+
+    Check out the badges hosted by [shields.io](https://shields.io/).
   
     ${response.license}`;
 
@@ -77,10 +63,5 @@ function generateMarkdown(response) {
   `;
 }
 
-  //add markdown
- // draftMarkdown += draftDev;
-
-  // Return markdown
-  //return content;
 
 module.exports = generateMarkdown;

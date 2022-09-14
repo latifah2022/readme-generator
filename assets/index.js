@@ -1,8 +1,7 @@
 //node modules
 const question = require('inquirer');
 const fs = require('fs');
-//const util = require('util');
-const generateMarkdown = require("./utils/generateMarkdown.js")
+const generateMarkdown = require("./generateMarkdown")
 
 //Questions the user will be asked
  let questions = [
@@ -10,27 +9,26 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
     type: 'input',
     message: "What is your GitHub username? (No @ needed)",
     name: 'username',
-    //default: 'connietran-dev',
-    //validate: (value) => {if(value){return true}else {return "value required"}}
+    validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "What is your email",
-    name: 'email'
+    name: 'email',
+    validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "What is the name of your GitHub repo?",
     name: 'repo',
-    //default: 'readme-generator',
-    //validate: (value) => {if(value){return true}else {return "value required"}}
+    validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "What is the title of your project?",
     name: 'title',
     default: 'Project Title',
-    //validate: (value) => {if(value){return true}else {return "value required"}}
+    validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
@@ -69,6 +67,7 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
       type: 'input',
       message: 'If applicable, provide any tests written for your application and provide examples on how to run them',
       name: 'Tests',
+      //validate: (value) => {if(value){return true}else {return "value required"}}
     },
   ]
 
@@ -95,30 +94,6 @@ function init() {
 // Function call to initialize app
 init();
 
-
-
-
-  // .then(response =>{
-  //   //fs.writeFile(file, data[, options], callback)
-  //   fs.writeFile('index.html', response, ife);
-  // })  
-
-//   function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, err => {
-//         if (err) {
-//           return console.log(err);
-//         }
-      
-//         console.log("Success! Your README.md file has been generated")
-//     });
-// }
-
-//   validate: function (answer) {
-//     if (answer.length < 1) {
-//         return console.log("A valid GitHub username is required.");
-//     }
-//     return true;
-// }
 
 
 
