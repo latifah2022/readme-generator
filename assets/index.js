@@ -2,7 +2,8 @@
 const question = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-const generatorMarkDown = require("./utils/generateMarkDown.js")
+const generateMarkdown = require("./utils/generateMarkdown.js")
+const generatehtml = require('./index.html')
 
 //Questions the user will be asked
  let questions = [
@@ -65,11 +66,11 @@ const generatorMarkDown = require("./utils/generateMarkDown.js")
       message: 'If applicable, provide any tests written for your application and provide examples on how to run them',
       name: 'Tests',
     },
-    {
-      type: 'input',
-      message: 'What challenges did you face during t',
-      name: 'Questions',
-    },
+    // {
+    //   type: 'input',
+    //   message: 'What challenges did you face during t',
+    //   name: 'Questions',
+    // },
   ]
 
   // Function to write to my ReadMe.md file. //
@@ -111,3 +112,7 @@ inquirer.prompt(questions).then(function(response) {
 //     }
 //     return true;
 // }
+
+
+
+//https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>

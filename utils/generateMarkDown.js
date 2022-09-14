@@ -61,8 +61,6 @@ function generateMarkdown(userResponses, userInfo) {
   let draftDev = `---
   
   ## Questions?
-
-  // <img src="${userInfo.avatar_url}" alt="${userInfo.login}" width="40%" />
   
   For any questions, please contact me with the information below:
  
