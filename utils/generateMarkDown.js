@@ -1,21 +1,31 @@
-function generateMarkdown(response, userInfo) {
-    var content = `# ${response.title}`
+function generateMarkdown(response) {
+  return 
+    `# ${response.title}`
 
-    let content = `## Table of Contents`;
+    `## Table of Contents
 
-    if (response.installation !== '') { content += `* [Installation](#installation)` };
-  
-    if (response.usage !== '') { content += `* [Usage](#usage)` };
-  
-    if (response.contributing !== '') { content += ` * [Contributing](#contributing)` };
-  
-    if (response.licence !== '') { content += ` * [License](#license)` };
+   -[ Title](#title)
+   -[ Description](#description)
+   -[ Installation](#installation)
+   -[ Usage](#usage)
+   -[ License](#license)
+   -[ Contributing](#contributing)
+   -[ Tests](#tests)
+   -[ Questions](#questions)`
 
-    if (response.tests !== '') { content += `* [Tests](#tests)` };
+    //let content = ## Table of Contents;
+
+    // if (response.installation !== '') { content += * [Installation](#installation) };
+  
+    // if (response.usage !== '') { content += * [Usage](#usage) };
+  
+    // if (response.contributing !== '') { content +=  * [Contributing](#contributing) };
+  
+    // if (response.licence !== '') { content +=  * [License](#license) };
+
+    // if (response.tests !== '') { content += * [Tests](#tests) };
      
-    `# Repository Description
-
-    ###### [Back to Table of Contents](#Table-of-Contents)
+    `## Repository Description
 
     ${response.description}`
     
@@ -23,56 +33,54 @@ function generateMarkdown(response, userInfo) {
 
     *Steps required to install project and how to get the development environment running:*
     
-    ${response.installation}`};
+    ${response.installation}`;
 
-    // Optional Usage section
-  if (response.usage !== '') {draftMarkdown +=`
+    //  Usage section
+    //if (response.usage !== '') {draftMarkdown +=
   
-  ## Usage 
+    `## Usage 
 
-    *Instructions and examples for use:*
+    *Instructions on how to use:*
     
-    ${response.usage}`};
+    ${response.usage}`;
 
-    // Optional Contributing section
-  if (userResponses.contributing !== '') {draftMarkdown +=`
+    //  Contributing section
+    //if (userResponses.contributing !== '') {draftMarkdown +=
     
-    ## Contributing
+    `## Contributing
 
     *If you would like to contribute it, you can follow these guidelines for how to do so.*
     
-    ${response.contributing}`};
+    ${response.contributing}`;
 
-  if (response.tests !== '') {
-  
-    draftMarkdown +=`
+    //if (response.tests !== '') { draftMarkdown +=
       
-    ## Tests
+    `## Tests
       
     *Tests for application and how to run them:*
       
-    ${response.tests}`};
+    ${response.tests}`;
 
-    // License section is required
-  draftMarkdown +=`## License
+    // License section is required draftMarkdown +=
+    `## License
   
-  ${response.license}`;
+    ${response.license}`;
 
-  // Questions / About Developer section
-  let draftDev = `---
+    // Questions / About Developer section
+    `## Questions?
   
-  ## Questions?
-  
-  For any questions, please contact me with the information below:
+    For any questions, please contact me with the information below:
  
-  GitHub: [@${userInfo.login}](${userInfo.url})
+    GitHub: ${response.username}
+
+    Email: ${response.email}
   `;
+}
 
   //add markdown
  // draftMarkdown += draftDev;
 
   // Return markdown
-  return content;
-
+  //return content;
 
 module.exports = generateMarkdown;

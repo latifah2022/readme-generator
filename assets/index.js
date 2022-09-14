@@ -11,35 +11,40 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
     message: "What is your GitHub username? (No @ needed)",
     name: 'username',
     //default: 'connietran-dev',
-    validate: (value) => {if(value){return true}else {return "value required"}}
+    //validate: (value) => {if(value){return true}else {return "value required"}}
+  },
+  {
+    type: 'input',
+    message: "What is your email",
+    name: 'email'
   },
   {
     type: 'input',
     message: "What is the name of your GitHub repo?",
     name: 'repo',
     //default: 'readme-generator',
-    validate: (value) => {if(value){return true}else {return "value required"}}
+    //validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "What is the title of your project?",
     name: 'title',
     default: 'Project Title',
-    validate: (value) => {if(value){return true}else {return "value required"}}
+    //validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "Write a description of your project.",
     name: 'description',
     default: 'Project Description',
-    validate: (value) => {if(value){return true}else {return "value required"}}
+    //validate: (value) => {if(value){return true}else {return "value required"}}
   },
 
   {
       type: 'input',
       message: 'How to install your app?',
       name: 'installation',
-      validate: (value) => {if(value){return true}else {return "value required"}}
+      //validate: (value) => {if(value){return true}else {return "value required"}}
     },
     {
       type: 'input',
@@ -52,7 +57,7 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
       message: 'What licenses did you use?',
       choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
       name: 'license',
-      validate: (value) => {if(value){return true}else {return "value required"}}
+      //validate: (value) => {if(value){return true}else {return "value required"}}
     },
     {
       type: "input",
@@ -65,11 +70,6 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
       message: 'If applicable, provide any tests written for your application and provide examples on how to run them',
       name: 'Tests',
     },
-    // {
-    //   type: 'input',
-    //   message: 'What challenges did you face during t',
-    //   name: 'Questions',
-    // },
   ]
 
   // Function to write to my ReadMe.md file. //
@@ -78,16 +78,17 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
   
    const content = generateMarkdown(response);
    console.log(content);
-    fs.writeFile("./README.md", content, (err) => {
-      if (err) throw err
-      console.log("success");
+    fs.writeFile("./README.md", response, (err) => {
+      err
+      ? console.log(err)
+      : console.log("success");
     });
 } ); 
 
 //a function to initialize app
 function init() {
   return inquirer.prompt(questions).then((response) => {
-    writeToFile("GENERATED-README.md", generateMarkdown(response));
+    content("README.md", generateMarkdown(response));
   });
 }
 
