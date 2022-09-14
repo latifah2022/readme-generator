@@ -1,5 +1,5 @@
 //node modules
-const question = require('inquirer');
+const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require("./utils/generateMarkdown")
 
@@ -53,7 +53,7 @@ const generateMarkdown = require("./utils/generateMarkdown")
     {
       type: 'checklist',
       message: 'What licenses did you use?',
-      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+      choices: ["MIT", "Apache 2.0", "IBM-IPL 1.0", "None"],
       name: 'license',
       //validate: (value) => {if(value){return true}else {return "value required"}}
     },
@@ -71,23 +71,28 @@ const generateMarkdown = require("./utils/generateMarkdown")
     },
   ]
 
-  // Function to write to my ReadMe.md file. //
-  inquirer.prompt(questions).then((response) => {
-  console.log(response);
+//   // Function to write to my ReadMe.md file. //
+//   inquirer.prompt(questions).then((response) => {
+//   console.log(response);
   
-   const content = generateMarkdown(response);
-   console.log(content);
-    fs.writeFile("./README.md", response, (err) => {
-      err
-      ? console.log(err)
-      : console.log("success");
-    });
-} ); 
+//    const content = generateMarkdown(response);
+//    console.log(content);
+//     fs.writeFile("./README.md", response, (err) => {
+//       err
+//       ? console.log(err)
+//       : console.log("success");
+//     });
+// } ); 
 
 //a function to initialize app
 function init() {
   return inquirer.prompt(questions).then((response) => {
-    content("README.md", generateMarkdown(response));
+    //content("README.md", generateMarkdown(response));
+    fs.writeFile("./README.md", generateMarkdown(response), (err) => {
+           err
+         ? console.log(err)
+           : console.log("success");
+         });
   });
 }
 
