@@ -1,4 +1,4 @@
-# sdfghj
+# README
 
 ## Table of Contents
 
@@ -20,13 +20,13 @@
 
 ## Repository Description
 
-sdfghjk
+This project helps to simplify a users work when creating a readme file as it automates the proccess.
 
 ## Installation
 
 *Steps required to install project and how to get the development environment running:*
 
-dfghjk;
+
 
 //  Usage section
 
@@ -34,7 +34,7 @@ dfghjk;
 
 *Instructions on how to use:*
 
-;
+Answer the questions correctly;
 
 //  Contributing section
 
@@ -55,13 +55,14 @@ undefined;
 
 Check out the badges hosted by [shields.io](https://shields.io/).
 
-undefined
+## License
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 // Questions / About Developer section
 ## Questions?
 
 For any questions, please contact me with the information below:
 
-GitHub: latifah
+GitHub: latifah2022
 
-Email: zadfg
+Email: zawedde2021@gmail.com
