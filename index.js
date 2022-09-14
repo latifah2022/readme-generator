@@ -71,19 +71,7 @@ const generateMarkdown = require("./utils/generateMarkdown")
     },
   ]
 
-//   // Function to write to my ReadMe.md file. //
-//   inquirer.prompt(questions).then((response) => {
-//   console.log(response);
-  
-//    const content = generateMarkdown(response);
-//    console.log(content);
-//     fs.writeFile("./README.md", response, (err) => {
-//       err
-//       ? console.log(err)
-//       : console.log("success");
-//     });
-// } ); 
-
+ // Function to write to my ReadMe.md file.
 //a function to initialize app
 function init() {
   return inquirer.prompt(questions).then((response) => {
