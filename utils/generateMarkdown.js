@@ -19,72 +19,72 @@ function renderLicenseBadge(license) {
 function generateMarkdown(response) {
   return `# ${response.title}
 
-    ## Table of Contents
+## Table of Contents
 
-   [ Title](#title)
+[ Title](#title)
 
-   [ Description](#description)
+[ Description](#description)
 
-   [ Installation](#installation)
+[ Installation](#installation)
 
-   [ Usage](#usage)
+[ Usage](#usage)
 
-   [ License](#license)
+[ License](#license)
 
-   [ Contributing](#contributing)
+[ Contributing](#contributing)
 
-   [ Tests](#tests)
-   
-   [ Questions](#questions)
+[ Tests](#tests)
 
-    ## Repository Description
+[ Questions](#questions)
 
-    ${response.description}
-    
-    ## Installation
+## Repository Description
 
-    *Steps required to install project and how to get the development environment running:*
-    
-    ${response.installation};
+${response.description}
 
-    //  Usage section
+## Installation
+
+*Steps required to install project and how to get the development environment running:*
+
+${response.installation};
+
+//  Usage section
+
+## Usage 
+
+*Instructions on how to use:*
+
+${response.usage};
+
+//  Contributing section
+
+## Contributing
+
+*If you would like to contribute it, you can follow these guidelines for how to do so.*
+
+${response.contributing};
   
-    ## Usage 
-
-    *Instructions on how to use:*
-    
-    ${response.usage};
-
-    //  Contributing section
-    
-    ## Contributing
-
-    *If you would like to contribute it, you can follow these guidelines for how to do so.*
-    
-    ${response.contributing};
-      
-    ## Tests
-      
-    *Tests for application and how to run them:*
-      
-    ${response.tests};
-
-    // License section 
-    ## License
-
-    Check out the badges hosted by [shields.io](https://shields.io/).
+## Tests
   
-    ${renderLicenseBadge(response.license)}
-
-    // Questions / About Developer section
-    ## Questions?
+*Tests for application and how to run them:*
   
-    For any questions, please contact me with the information below:
- 
-    GitHub: ${response.username}
+${response.tests};
 
-    Email: ${response.email}
-  `;
+// License section 
+## License
+
+Check out the badges hosted by [shields.io](https://shields.io/).
+
+${renderLicenseBadge(response.license)}
+
+// Questions / About Developer section
+## Questions?
+
+For any questions, please contact me with the information below:
+
+GitHub: ${response.username}
+
+Email: ${response.email}
+`;
 }
 
 
