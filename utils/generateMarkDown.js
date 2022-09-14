@@ -1,16 +1,17 @@
-function generateMarkdown(userResponses, userInfo) {
+function generateMarkdown(response, userInfo) {
     var content = `# ${response.title}`
 
     let content = `## Table of Contents`;
 
-    if (userResponses.installation !== '') { content += `* [Installation](#installation)` };
+    if (response.installation !== '') { content += `* [Installation](#installation)` };
   
-    if (userResponses.usage !== '') { content += `* [Usage](#usage)` };
+    if (response.usage !== '') { content += `* [Usage](#usage)` };
   
-    if (userResponses.contributing !== '') { content += ` * [Contributing](#contributing)` };
+    if (response.contributing !== '') { content += ` * [Contributing](#contributing)` };
   
-    if (userResponses.tests !== '') { content += ` * [License](#license)` };
+    if (response.licence !== '') { content += ` * [License](#license)` };
 
+    if (response.tests !== '') { content += `* [Tests](#tests)` };
      
     `# Repository Description
 
@@ -22,16 +23,16 @@ function generateMarkdown(userResponses, userInfo) {
 
     *Steps required to install project and how to get the development environment running:*
     
-    ${userResponses.installation}`};
+    ${response.installation}`};
 
     // Optional Usage section
-  if (userResponses.usage !== '') {draftMarkdown +=`
-    
-    ## Usage 
+  if (response.usage !== '') {draftMarkdown +=`
+  
+  ## Usage 
 
     *Instructions and examples for use:*
     
-    ${userResponses.usage}`};
+    ${response.usage}`};
 
     // Optional Contributing section
   if (userResponses.contributing !== '') {draftMarkdown +=`
@@ -40,9 +41,9 @@ function generateMarkdown(userResponses, userInfo) {
 
     *If you would like to contribute it, you can follow these guidelines for how to do so.*
     
-    ${userResponses.contributing}`};
+    ${response.contributing}`};
 
-  if (userResponses.tests !== '') {
+  if (response.tests !== '') {
   
     draftMarkdown +=`
       
@@ -50,12 +51,12 @@ function generateMarkdown(userResponses, userInfo) {
       
     *Tests for application and how to run them:*
       
-    ${userResponses.tests}`};
+    ${response.tests}`};
 
     // License section is required
   draftMarkdown +=`## License
   
-  ${userResponses.license}`;
+  ${response.license}`;
 
   // Questions / About Developer section
   let draftDev = `---

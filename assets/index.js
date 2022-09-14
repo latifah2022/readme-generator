@@ -1,9 +1,8 @@
 //node modules
 const question = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+//const util = require('util');
 const generateMarkdown = require("./utils/generateMarkdown.js")
-const generatehtml = require('./index.html')
 
 //Questions the user will be asked
  let questions = [
@@ -25,14 +24,14 @@ const generatehtml = require('./index.html')
     type: 'input',
     message: "What is the title of your project?",
     name: 'title',
-    //default: 'Project Title',
+    default: 'Project Title',
     validate: (value) => {if(value){return true}else {return "value required"}}
   },
   {
     type: 'input',
     message: "Write a description of your project.",
     name: 'description',
-    //default: 'Project Description',
+    default: 'Project Description',
     validate: (value) => {if(value){return true}else {return "value required"}}
   },
 
@@ -46,7 +45,7 @@ const generatehtml = require('./index.html')
       type: 'input',
       message: 'How to use your app?',
       name: 'usage',
-      validate: (value) => {if(value){return true}else {return "value required"}}
+      //validate: (value) => {if(value){return true}else {return "value required"}}
     },
     {
       type: 'checklist',
@@ -59,7 +58,7 @@ const generatehtml = require('./index.html')
       type: "input",
       message: "Please list any contributors. (Use GitHub usernames)",
       name: "contributors",
-      validate: (value) => {if(value){return true}else {return "value required"}}
+      //validate: (value) => {if(value){return true}else {return "value required"}}
     },
     {
       type: 'input',
@@ -74,19 +73,26 @@ const generatehtml = require('./index.html')
   ]
 
   // Function to write to my ReadMe.md file. //
-inquirer.prompt(questions).then(function(response) {
+  inquirer.prompt(questions).then((response) => {
   console.log(response);
   
-   var content = generatorMarkDown(response);
+   const content = generateMarkdown(response);
    console.log(content);
-    fs.writeFile("./README.md", content, function(err){
-        if (err) throw err
-        console.log("success");
+    fs.writeFile("./README.md", content, (err) => {
+      if (err) throw err
+      console.log("success");
     });
 } ); 
 
+//a function to initialize app
+function init() {
+  return inquirer.prompt(questions).then((response) => {
+    writeToFile("GENERATED-README.md", generateMarkdown(response));
+  });
+}
 
-
+// Function call to initialize app
+init();
 
 
 
